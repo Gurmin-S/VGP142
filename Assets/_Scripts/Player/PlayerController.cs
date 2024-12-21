@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float walkSpeed = 5f;
-    public float runSpeed = 9f;
+    public float runSpeed;
     public float rotationSpeed = 720f;
     public float gravity = -9.81f;
     public float jumpHeight = 1f;
@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        runSpeed = walkSpeed * 2;
         cameraTransform = Camera.main != null ? Camera.main.transform : null;
         playerCamera = Camera.main; // Set the player camera to the main camera
         if (cameraTransform == null)
@@ -78,6 +79,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        runSpeed = walkSpeed * 2;
         if (cameraTransform != null)
         {
             MovePlayer();
