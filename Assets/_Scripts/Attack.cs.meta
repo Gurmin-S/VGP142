@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4424d830480fa0843a346f49fc2e065c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - animator: {instanceID: 0}
+  - audioSource: {instanceID: 0}
+  - hitEffect: {fileID: 5334228485563152753, guid: d5e198c0d56db4e458af726141e896f1, type: 3}
+  - swordSwing: {fileID: 8300000, guid: 7923190c5e80b4d4d9396acc5d0b48cf, type: 3}
+  - hitSound: {fileID: 8300000, guid: 11245d3945c564b45a1bafad5ecb70e5, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
