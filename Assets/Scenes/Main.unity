@@ -749,7 +749,6 @@ Transform:
   m_LocalScale: {x: 57.8, y: 1.31, z: 70.9}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1313031850250689708}
   - {fileID: 1268857546}
   - {fileID: 1258905712}
   - {fileID: 613761885}
@@ -1601,7 +1600,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 400140, guid: a58d63122b09e9144938cd6a1ece4824, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1313031850250689708}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a58d63122b09e9144938cd6a1ece4824, type: 3}
 --- !u!1 &446719679 stripped
@@ -4075,19 +4077,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6446520196483396223, guid: ef37f545a811e274e83a09f2b0984187, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7814902566443045287, guid: ef37f545a811e274e83a09f2b0984187, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 298
+      value: 215.67
       objectReference: {fileID: 0}
     - target: {fileID: 7814902566443045287, guid: ef37f545a811e274e83a09f2b0984187, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12
+      value: 12.66
       objectReference: {fileID: 0}
     - target: {fileID: 7814902566443045287, guid: ef37f545a811e274e83a09f2b0984187, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 572
+      value: 576.24
       objectReference: {fileID: 0}
     - target: {fileID: 7814902566443045287, guid: ef37f545a811e274e83a09f2b0984187, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6667,7 +6669,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925886976436688241, guid: ed31e5286866ee844a671130018c3922, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2472510735352264314, guid: ed31e5286866ee844a671130018c3922, type: 3}
       propertyPath: m_Name
@@ -6675,11 +6677,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7222312191360876075, guid: ed31e5286866ee844a671130018c3922, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7222312191360876075, guid: ed31e5286866ee844a671130018c3922, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8112169568516537380, guid: ed31e5286866ee844a671130018c3922, type: 3}
       propertyPath: m_Pivot.x
@@ -7011,7 +7013,7 @@ Transform:
   m_GameObject: {fileID: 2003280198}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 215.67, y: 24.28, z: 576.24}
+  m_LocalPosition: {x: 215.67, y: 16.23, z: 576.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7609,7 +7611,7 @@ MonoBehaviour:
   pickUpRange: 1.5
   dropForwardForce: 5
   dropUpwardForce: 5
-  equipped: 0
+  equipped: 1
 --- !u!54 &928221211031211192
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7716,13 +7718,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313031850250256524}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.95881975, y: -0, z: -0.28401542, w: 0}
-  m_LocalPosition: {x: -0.094, y: 2.1, z: 0.395}
-  m_LocalScale: {x: 0.016211165, y: 0.76335883, z: 0.014922225}
+  m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 194501317}
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+  m_Father: {fileID: 1856333051}
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
 --- !u!1001 &5781079349164773777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7859,8 +7861,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 1961538232}
   - {fileID: 2003280199}
-  - {fileID: 1082689896}
   - {fileID: 1178554942}
+  - {fileID: 1082689896}
   - {fileID: 1637665611}
   - {fileID: 1158372881}
   - {fileID: 1264414864}
