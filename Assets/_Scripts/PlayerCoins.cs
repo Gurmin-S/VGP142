@@ -1,5 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI; // Add this for working with UI elements
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerCoins : MonoBehaviour
 {
@@ -16,6 +17,13 @@ public class PlayerCoins : MonoBehaviour
 
         // Update the slider value based on the total coins, scaling it to the maxCoins
         UpdateCoinSlider();
+
+        // Check if the player has collected all coins
+        if (totalCoins >= maxCoins)
+        {
+            // Load the new scene when all coins are collected
+            LoadScene();
+        }
     }
 
     // Method to update the slider value
@@ -27,6 +35,13 @@ public class PlayerCoins : MonoBehaviour
             float normalizedCoins = (float)totalCoins / maxCoins;
             coinSlider.value = Mathf.Clamp01(normalizedCoins); // Ensure the value stays between 0 and 1
         }
+    }
+
+    // Method to load the scene once all coins are collected
+    private void LoadScene()
+    {
+        // Optionally, you can also add a delay or effect here before loading the scene.
+        SceneManager.LoadScene(2); // You can change the scene index to the appropriate one for your game
     }
 
     private void Start()
