@@ -78,6 +78,30 @@ public class CharacterActor : MonoBehaviour
         // Reset the "Hit" trigger after it has been set
         animator.ResetTrigger("Hit");
     }
+    public void RestoreHealth(int amount)
+    {
+        if (isDead || currentHealth >= maxHealth) return;
+
+        currentHealth += amount;
+
+        // Ensure the current health doesn't exceed the maximum health
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        // Update the health slider with the current health value
+        if (healthSlider != null)
+        {
+            healthSlider.value = currentHealth;
+        }
+    }
+    public int CurrentHealth()
+    {
+        return currentHealth;
+    }
+
+
 
     void Death()
     {
