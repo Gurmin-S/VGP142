@@ -1,12 +1,10 @@
 using UnityEngine;
-using System.Collections;
 
 public class HealthPack : MonoBehaviour
 {
     [Header("Health Pack Settings")]
     [Tooltip("Amount of health restored.")]
     public int healthRestoreAmount = 25;
-
 
     [Tooltip("Layer to ignore collisions (e.g., Enemy).")]
     public LayerMask ignoreLayer;
@@ -39,7 +37,9 @@ public class HealthPack : MonoBehaviour
         if (character != null && !character.isDead && character.CurrentHealth() < character.maxHealth)
         {
             character.RestoreHealth(healthRestoreAmount);
+
+            // Destroy the health pack object after use
+            Destroy(gameObject);
         }
     }
-
 }

@@ -4756,7 +4756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1212194907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4770,8 +4770,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 2759366666921149428, guid: 5134f84b004abc84d89c038186030d25, type: 3}
-  - {fileID: 3131895827241256553, guid: a6cd2023bc35c7f49a14531921299492, type: 3}
+  - {fileID: 2325748335188619592, guid: baa8c3faea1c6524f98ed36a207403e6, type: 3}
+  - {fileID: 1336496265946709458, guid: 078989db4cb1bdc4597a5e6e1ce04360, type: 3}
+  - {fileID: 6333109503759145762, guid: 0b9096732ae51e24380b5abcb04024f2, type: 3}
+  - {fileID: 4935272327194327028, guid: 2d2cd315c8970934ab64e1c7662de717, type: 3}
   numberOfPrefabsToSpawn: 5
   spawnRadius: 30
 --- !u!4 &1212194908
@@ -7107,7 +7109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1828344292
 MonoBehaviour:
   m_ObjectHideFlags: 0
