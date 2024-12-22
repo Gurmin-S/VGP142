@@ -4756,7 +4756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1212194907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4774,8 +4774,8 @@ MonoBehaviour:
   - {fileID: 1336496265946709458, guid: 078989db4cb1bdc4597a5e6e1ce04360, type: 3}
   - {fileID: 6333109503759145762, guid: 0b9096732ae51e24380b5abcb04024f2, type: 3}
   - {fileID: 4935272327194327028, guid: 2d2cd315c8970934ab64e1c7662de717, type: 3}
-  numberOfPrefabsToSpawn: 5
-  spawnRadius: 30
+  numberOfPrefabsToSpawn: 20
+  spawnRadius: 50
 --- !u!4 &1212194908
 Transform:
   m_ObjectHideFlags: 0
@@ -7109,7 +7109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1828344292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7126,7 +7126,7 @@ MonoBehaviour:
   - {fileID: 1778942479362165411, guid: cd8e542bfbfb2b8458f5d58b3990a0b9, type: 3}
   - {fileID: 6437181847946741079, guid: 54b0c1f4ace2a184a811f3ec9760bea7, type: 3}
   numberOfPrefabsToSpawn: 20
-  spawnRadius: 30
+  spawnRadius: 70
 --- !u!4 &1828344293
 Transform:
   m_ObjectHideFlags: 0
