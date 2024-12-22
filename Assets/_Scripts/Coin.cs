@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
 public class Coin : MonoBehaviour
 {
@@ -8,11 +8,23 @@ public class Coin : MonoBehaviour
     public int valueIncreasePerCollection = 1; // Amount by which the coin value increases with each collection
     private int currentCoinValue;
 
-    private bool isCollected = false; // To track if the coin has been collected
+    [Tooltip("Time before the coin respawns after being collected.")]
+    public float respawnTime = 5f;
 
-    private void Start()
+    private bool isCollected = false; // To track if the coin has been collected
+    private MeshRenderer meshRenderer;
+    private Collider coinCollider;
+
+    void Start()
     {
         currentCoinValue = baseCoinValue; // Start with the base coin value
+        meshRenderer = GetComponent<MeshRenderer>();
+        coinCollider = GetComponent<Collider>();
+
+        if (meshRenderer == null || coinCollider == null)
+        {
+            Debug.LogError("Coin is missing required components.");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,8 +44,28 @@ public class Coin : MonoBehaviour
             // Increase the value of subsequent coins
             currentCoinValue += valueIncreasePerCollection;
 
-            // Destroy the coin object after it has been collected
-            Destroy(gameObject);
+            // Start the respawn process
+            StartCoroutine(RespawnCoin());
         }
+    }
+
+    private IEnumerator RespawnCoin()
+    {
+        // Disable the coin visuals and collider (simulate collection)
+        meshRenderer.enabled = false;
+        coinCollider.enabled = false;
+
+        // Wait for the respawn time
+        yield return new WaitForSeconds(respawnTime);
+
+        // Re-enable the coin visuals and collider for collection again
+        meshRenderer.enabled = true;
+        coinCollider.enabled = true;
+
+        // Reset the coin value when it respawns
+        currentCoinValue = baseCoinValue;
+
+        // Mark the coin as uncollected
+        isCollected = false;
     }
 }

@@ -76,6 +76,8 @@ GameObject:
   - component: {fileID: 33000012841361078}
   - component: {fileID: 23000013388907530}
   - component: {fileID: 95000012458517520}
+  - component: {fileID: 8017768288637393988}
+  - component: {fileID: 8932248592077309598}
   m_Layer: 0
   m_Name: coin
   m_TagString: Untagged
@@ -169,3 +171,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &8017768288637393988
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013919102196}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.24891318, y: 0.044373088, z: 0.25136742}
+  m_Center: {x: 0.00000049918896, y: 0.006633352, z: -0.00022950774}
+--- !u!114 &8932248592077309598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013919102196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91bf17f8afa2d9340898db3022bd34c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseCoinValue: 1
+  valueIncreasePerCollection: 1
+  respawnTime: 5
