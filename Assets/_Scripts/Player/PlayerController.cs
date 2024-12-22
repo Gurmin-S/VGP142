@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    public float walkSpeed = 5f;
+    public static float walkSpeed = 5f;
     public float runSpeed;
     public float rotationSpeed = 720f;
     public float gravity = -9.81f;

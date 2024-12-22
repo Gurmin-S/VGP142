@@ -15,7 +15,6 @@ public class Attack : MonoBehaviour
     public int attackDamage = 1;
     public LayerMask attackLayer;
 
-    public GameObject hitEffect;
     public AudioClip swordSwing;
     public AudioClip hitSound;
 
@@ -114,8 +113,6 @@ public class Attack : MonoBehaviour
         audioSource.pitch = 1;
         audioSource.PlayOneShot(hitSound);
 
-        GameObject hitInstance = Instantiate(hitEffect, position, Quaternion.identity);
-        Destroy(hitInstance, 20);
     }
 
     private void OnDrawGizmos()

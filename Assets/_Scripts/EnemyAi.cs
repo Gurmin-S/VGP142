@@ -1,16 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAi : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
 
-    public Transform target; // Transform to assign target (player or other object)
-
     public LayerMask whatIsGround;
-    public LayerMask attackLayer; // Make sure this is set to Hittable layer
-
-    public float health;
+    public LayerMask attackLayer;
 
     // Patroling
     public Vector3 walkPoint;
@@ -27,19 +23,13 @@ public class EnemyAi : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
-    // Animator parameters
     public Animator animator;
-    public float AnimlerpSpeed = 5f;  // Speed of the animation transition
+    public float AnimlerpSpeed = 5f; // Speed of the animation transition
 
-    private Vector3 moveInput; // For moving input
+    private Transform target;
 
-    private void Awake()
+    private void Start()
     {
-        if (target == null)
-        {
-            Debug.LogError("No target assigned to the Enemy AI.");
-        }
-
         agent = GetComponent<NavMeshAgent>();
 
         if (attackScript == null)
@@ -51,33 +41,38 @@ public class EnemyAi : MonoBehaviour
         {
             Debug.LogError("Animator is not assigned.");
         }
+
+        // Automatically find the first player object with the "Player" tag
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            target = player.transform;
+        }
+        else
+        {
+            Debug.LogError("No object with the 'Player' tag found!");
+        }
     }
 
     private void Update()
     {
-        // Update animator parameters based on AI movement state
         UpdateAnimatorParameters();
 
         // Check for sight and attack range
-        playerInSightRange = CheckIfPlayerInRange(sightRange);
-        playerInAttackRange = CheckIfPlayerInRange(attackRange);
+        playerInSightRange = CheckIfInRange(target, sightRange);
+        playerInAttackRange = CheckIfInRange(target, attackRange);
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChaseTarget();
         if (playerInAttackRange && playerInSightRange) AttackTarget();
     }
 
-    private bool CheckIfPlayerInRange(float range)
+    private bool CheckIfInRange(Transform target, float range)
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, range);
-        foreach (Collider collider in colliders)
-        {
-            if (collider.transform == target)
-            {
-                return true;
-            }
-        }
-        return false;
+        if (target == null) return false;
+
+        float distance = Vector3.Distance(transform.position, target.position);
+        return distance <= range;
     }
 
     private void Patroling()
@@ -89,14 +84,12 @@ public class EnemyAi : MonoBehaviour
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        // Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
 
     private void SearchWalkPoint()
     {
-        // Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
@@ -116,7 +109,6 @@ public class EnemyAi : MonoBehaviour
 
     private void AttackTarget()
     {
-        // Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
         if (target != null)
@@ -126,7 +118,6 @@ public class EnemyAi : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            // Perform melee attack via Attack script
             PerformMeleeAttack();
 
             alreadyAttacked = true;
@@ -138,7 +129,7 @@ public class EnemyAi : MonoBehaviour
     {
         if (attackScript != null)
         {
-            attackScript.PerformAttack(); // Use the existing attack script to perform the attack
+            attackScript.PerformAttack();
         }
     }
 
@@ -147,34 +138,14 @@ public class EnemyAi : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-    }
-
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
-
-    // Update the Animator parameters based on movement state
     private void UpdateAnimatorParameters()
     {
         if (animator != null)
         {
-            // Calculate movement speed (normalized)
             float targetSpeed = agent.velocity.sqrMagnitude > 0 ? (agent.velocity.magnitude > 1.5f ? 1f : 0.5f) : 0f;
-
-            // Smoothly transition to the target speed
             float smoothSpeed = Mathf.Lerp(animator.GetFloat("Speed"), targetSpeed, Time.deltaTime * AnimlerpSpeed);
-
-            // Set the new smoothed speed to the animator
             animator.SetFloat("Speed", smoothSpeed);
-
-            // Update the isGrounded parameter based on agent's velocity
-            animator.SetBool("isGrounded", agent.isOnNavMesh); // or use your own method to determine grounded status
+            animator.SetBool("isGrounded", agent.isOnNavMesh);
         }
     }
 
