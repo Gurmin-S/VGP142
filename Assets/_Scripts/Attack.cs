@@ -12,7 +12,8 @@ public class Attack : MonoBehaviour
     public float attackDistance = 3f;
     public float attackDelay = 0.4f;
     public float attackSpeed = 1f;
-    public int attackDamage = 1;
+    public int baseAttackDamage = 1;  // Original attack damage
+    private int currentAttackDamage;
     public LayerMask attackLayer;
 
     public AudioClip swordSwing;
@@ -33,6 +34,7 @@ public class Attack : MonoBehaviour
     private void Awake()
     {
         inputActions = new Inputs();
+        currentAttackDamage = baseAttackDamage;  // Start with base attack damage
     }
 
     private void OnEnable()
@@ -98,12 +100,12 @@ public class Attack : MonoBehaviour
             // Check if the hit object has the Actor component
             if (hit.transform.TryGetComponent<Actor>(out Actor actorTarget))
             {
-                actorTarget.TakeDamage(attackDamage);
+                actorTarget.TakeDamage(currentAttackDamage);  // Use current attack damage
             }
             // Check if the hit object has the CharacterActor component
             else if (hit.transform.TryGetComponent<CharacterActor>(out CharacterActor characterTarget))
             {
-                characterTarget.TakeDamage(attackDamage);
+                characterTarget.TakeDamage(currentAttackDamage);  // Use current attack damage
             }
         }
     }
@@ -112,7 +114,6 @@ public class Attack : MonoBehaviour
     {
         audioSource.pitch = 1;
         audioSource.PlayOneShot(hitSound);
-
     }
 
     private void OnDrawGizmos()
@@ -121,5 +122,17 @@ public class Attack : MonoBehaviour
         Vector3 rayOrigin = transform.position + Vector3.up * raycastHeightOffset;
         Gizmos.DrawLine(rayOrigin, rayOrigin + transform.forward * attackDistance);
         Gizmos.DrawSphere(rayOrigin + transform.forward * attackDistance, 0.1f);
+    }
+
+    // Method to increase attack damage
+    public void IncreaseDamage(int amount)
+    {
+        currentAttackDamage += amount;
+    }
+
+    // Method to reset attack damage
+    public void ResetDamage()
+    {
+        currentAttackDamage = baseAttackDamage;
     }
 }
