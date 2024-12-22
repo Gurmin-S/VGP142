@@ -4775,7 +4775,7 @@ MonoBehaviour:
   - {fileID: 6333109503759145762, guid: 0b9096732ae51e24380b5abcb04024f2, type: 3}
   - {fileID: 4935272327194327028, guid: 2d2cd315c8970934ab64e1c7662de717, type: 3}
   numberOfPrefabsToSpawn: 20
-  spawnRadius: 50
+  spawnRadius: 68.8
 --- !u!4 &1212194908
 Transform:
   m_ObjectHideFlags: 0
@@ -4785,7 +4785,7 @@ Transform:
   m_GameObject: {fileID: 1212194906}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 302.58762, y: 12.96, z: 576.83234}
+  m_LocalPosition: {x: 294, y: 12.96, z: 559.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7126,7 +7126,7 @@ MonoBehaviour:
   - {fileID: 1778942479362165411, guid: cd8e542bfbfb2b8458f5d58b3990a0b9, type: 3}
   - {fileID: 6437181847946741079, guid: 54b0c1f4ace2a184a811f3ec9760bea7, type: 3}
   numberOfPrefabsToSpawn: 20
-  spawnRadius: 70
+  spawnRadius: 85.8
 --- !u!4 &1828344293
 Transform:
   m_ObjectHideFlags: 0
@@ -7136,7 +7136,7 @@ Transform:
   m_GameObject: {fileID: 1828344291}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 302.58762, y: 12.96, z: 576.83234}
+  m_LocalPosition: {x: 293.3, y: 12.96, z: 565.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

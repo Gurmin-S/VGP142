@@ -38,4 +38,13 @@ public class Spawner : MonoBehaviour
             Instantiate(prefabToSpawn, randomPosition, Quaternion.identity);
         }
     }
+
+    void OnDrawGizmos()
+    {
+        // Set the Gizmos color
+        Gizmos.color = Color.green;
+
+        // Draw a wire sphere to visualize the spawn radius
+        Gizmos.DrawWireSphere(transform.position, spawnRadius);
+    }
 }
